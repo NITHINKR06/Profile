@@ -8,7 +8,7 @@ interface LoadingScreenProps {
 const Particle = ({ delay }: { delay: number }) => {
   return (
     <motion.div
-      className="absolute w-1 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
+      className="absolute w-1 h-1 rounded-full"
       initial={{
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
@@ -74,7 +74,7 @@ const LoadingOrb = () => {
       <motion.div
         className="w-96 h-96 rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(168,85,247,0.1) 0%, rgba(236,72,153,0.05) 50%, transparent 70%)",
+          background: "",
         }}
         animate={{
           scale: [1, 1.2, 1],
@@ -88,7 +88,7 @@ const LoadingOrb = () => {
       <motion.div
         className="absolute w-64 h-64 rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(168,85,247,0.2) 0%, rgba(236,72,153,0.1) 40%, transparent 60%)",
+          background: "",
         }}
         animate={{
           scale: [1.2, 1, 1.2],
@@ -208,12 +208,12 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         filter: "blur(10px)"
       }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center z-50 overflow-hidden"
+      className="fixed inset-0 bg-gradient-to-br from-black via-gray-600 to-slate-950 flex items-center justify-center z-50 overflow-hidden"
     >
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-20">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent h-px"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent h-px"
           animate={{
             y: [0, window.innerHeight],
             opacity: [0, 1, 0],
@@ -225,7 +225,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           }}
         />
         <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-transparent via-pink-500 to-transparent w-px"
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-pink-600 to-transparent w-px"
           animate={{
             x: [0, window.innerWidth],
             opacity: [0, 1, 0],
@@ -259,7 +259,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           }}
           className="mb-8"
         >
-          <GlitchText className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          <GlitchText className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-white via-pink-400 via-green-100 to-white bg-clip-text text-transparent">
             <motion.span
               animate={{
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
@@ -271,7 +271,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               }}
               style={{
                 backgroundSize: '300% 300%',
-                background: 'linear-gradient(45deg, #a855f7, #ec4899, #06b6d4, #a855f7)',
+                background: '',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -280,7 +280,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             </motion.span>
           </GlitchText>
           
-          <motion.p
+          {/* <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
@@ -298,7 +298,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             >
               Full Stack Developer
             </motion.span>
-          </motion.p>
+          </motion.p> */}
         </motion.div>
 
         {/* Enhanced Progress Bar */}
@@ -388,7 +388,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         </motion.div>
 
         {/* Code-like Loading Text */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
@@ -407,7 +407,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           >
             <span className="text-green-400">✓</span> Webpack compiled successfully
           </motion.div>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* Corner Accents */}

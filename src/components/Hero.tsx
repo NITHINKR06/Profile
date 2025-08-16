@@ -11,7 +11,7 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -146,8 +146,8 @@ export const Hero = () => {
               ease: 'easeInOut',
             }}
           >
-            <div className="w-80 h-80 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-2xl opacity-50 animate-pulse" />
+            <div className="w-96 h-96 relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-white to-purple-500 rounded-full blur-2xl opacity-50 animate-pulse" />
               <div className="absolute inset-4 glass-card rounded-full p-2">
                 <img
                   src="/nithin-k-r.jpg"
