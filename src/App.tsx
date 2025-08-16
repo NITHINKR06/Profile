@@ -70,19 +70,9 @@ function App(): JSX.Element {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="relative"
+          className="relative bg-black"
         >
           <AnimatedBackground />
-
-          {/* Dev-only clear token button */}
-          {/* {process.env.NODE_ENV === 'development' && (
-            <button
-              onClick={clearToken}
-              className="fixed top-4 right-4 z-50 bg-red-500 text-white px-4 py-2 rounded text-sm"
-            >
-              Clear Token (Dev)
-            </button>
-          )} */}
 
           <main>
             <section id="home">

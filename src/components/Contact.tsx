@@ -74,7 +74,7 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           
           {/* Header Section */}
-          <div className="text-center mb-16">
+          <div className="justify-center text-center mb-16">
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-8">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               <span className="text-white/90 font-medium">Available for work</span>
@@ -94,6 +94,7 @@ const Contact = () => {
             <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
               Ready to collaborate on your next project? I'd love to hear about your ideas and bring them to life.
             </p>
+
           </div>
 
           {/* Contact Cards Grid */}
@@ -159,8 +160,12 @@ const Contact = () => {
                 </div>
               );
             })}
+
           </div>
 
+          {/* <div className='flex items-center justify-center gap-4 text-gray-400 text-sm mb-8'>
+            <a href="https://hits.sh/nithinkr06.vercel.app/"><img alt="Hits"  src="https://hits.sh/nithinkr06.vercel.app.svg?label=%F0%9F%91%80view&extraCount=1&color=f350ef&labelColor=d9d6d6"/></a>
+          </div> */}
           
         </div>
       </div>
