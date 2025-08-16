@@ -49,7 +49,7 @@ export const Skills: React.FC = () => {
         {/* ... keep your decorative motion divs here ... */}
       </div>
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export const Skills: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -40 }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-center"
         >
           {portfolioData.skills[activeIndex].items.map((skill, skillIndex) => {
             const IconComponent = skillIcons[skill] || Code2;
@@ -106,7 +106,7 @@ export const Skills: React.FC = () => {
                   scale: 1.05,
                   transition: { duration: 0.2 }
                 }}
-                className="flex flex-col items-center p-4 rounded-xl bg-transparent hover:bg-white/5 transition-all duration-300 group cursor-pointer"
+                className="flex flex-col items-center p-4 bg-transparent hover:bg-white/5 transition-all duration-300 group cursor-pointer"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
