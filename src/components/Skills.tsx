@@ -132,7 +132,7 @@ export const Skills: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center relative mt-16"
+          className="text-center relative mt-28"
         >
           {/* ... keep your quote block with floating icons ... */}
         </motion.div>
