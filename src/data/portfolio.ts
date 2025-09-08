@@ -10,7 +10,10 @@ export interface Project {
 
 export interface Skill {
   category: string;
-  items: string[];
+  items: {
+    name: string;
+    logo: string; // can be emoji or /public/logo-original.svg path
+  }[];
 }
 
 export interface Education {
@@ -51,33 +54,62 @@ export const portfolioData = {
   skills: [
     {
       category: "Frontend",
-      items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Three.js"]
+      items: [
+        { name: "React", logo: "/logos/react-original.svg" },
+        { name: "Next.js", logo: "/logos/nextjs-original.svg" },
+        { name: "TypeScript", logo: "/logos/typescript-original.svg" },
+        { name: "Tailwind CSS", logo: "/logos/tailwindcss-original.svg" },
+        { name: "GSAP", logo: "/logos/gsap.svg" },
+        { name: "Three.js", logo: "/logos/threejs-original.svg" },
+        { name: "Vite", logo: "/logos/vite-original.svg" }
+      ]
     },
     {
-      category: "Backend", 
-      items: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL"]
+      category: "Backend",
+      items: [
+        { name: "Node.js", logo: "/logos/nodejs-original.svg" },
+        { name: "Python", logo: "/logos/python-original.svg" },
+        { name: "PostgreSQL", logo: "/logos/postgresql-original.svg" },
+        { name: "MongoDB", logo: "/logos/mongodb-original.svg" },
+        { name: "GraphQL", logo: "/logos/graphql-plain.svg" },
+        { name: "Networking", logo: "/logos/networking-original.svg" }
+      ]
     },
     {
       category: "DevOps",
-      items: ["Docker", "AWS", "Vercel", "GitHub Actions"]
+      items: [
+        { name: "Docker", logo: "/logos/docker-original.svg" },
+        { name: "AWS", logo: "/logos/aws-original.svg" },
+        { name: "Vercel", logo: "/logos/vercel-original.svg" },
+        { name: "GitHub Actions", logo: "/logos/githubactions-original.svg" }
+      ]
     },
     {
       category: "Tools",
-      items: ["Git", "VSCode", "Figma", "Notion", "Postman"]
+      items: [
+        { name: "Git", logo: "/logos/git-original.svg" },
+        { name: "GitHub", logo: "/logos/github-original.svg" },
+        { name: "VSCode", logo: "/logos/vscode-original.svg" },
+        { name: "Figma", logo: "/logos/figma-original.svg" },
+        { name: "Canva", logo: "/logos/canva-original.svg" },
+        { name: "Notion", logo: "/logos/notion-original.svg" },
+        { name: "Postman", logo: "/logos/postman.svg" },
+        { name: "Firebase", logo: "/logos/firebase-original.svg" }
+      ]
     }
   ] as Skill[],
+
 
   projects: [
     {
       id: "emp",
       title: "Employment Website",
       description: "A comprehensive React application focused on user authentication, booking management, calendar integration, and interactive UI components.",
-      technologies: [""],
+      technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       githubUrl: "https://github.com/NITHINKR06/emp",
-      liveUrl: "https://github.com/NITHINKR06/",
+      liveUrl: "https://your-deployment-link.com",
       status: "completed"
-    },
-    
+    }
   ] as Project[],
 
   education: [
@@ -95,23 +127,26 @@ export const portfolioData = {
     },
     {
       institution: "S.Manasa High School, Aldur",
-      degree: "High School ",
-      period: "2021",
-      description: ""
+      degree: "High School",
+      period: "2021"
     }
   ] as Education[],
 
   experience: [
     {
-      company: "Code lab systems Managalore",
-      position: "Full Stack Developer intern",
+      company: "Code lab systems Mangalore",
+      position: "Full Stack Developer Intern",
       period: "2024",
+      location: "Mangalore, IN",
       description: [
         "Led development of microservices architecture serving 1M+ users",
         "Implemented real-time features using WebSockets and Redis",
         "Mentored 3 junior developers and conducted code reviews",
         "Reduced application load time by 40% through optimization"
-      ]
+      ],
+      technologies: ["Node.js", "React", "Redis", "PostgreSQL"],
+      achievements: ["Optimized performance by 40%", "Improved developer onboarding"],
+      responsibilities: ["Architecture design", "Feature development", "Code reviews"]
     },
     {
       company: "StartupXYZ",
@@ -175,5 +210,10 @@ export const terminalCommands = {
   pwd: {
     description: "Print working directory",
     usage: "pwd"
+  },
+  social: {
+    description: "Show social links (GitHub, LinkedIn)",
+    usage: "social"
   }
+
 };
