@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Github, Linkedin, MapPin, Send, Star, Sparkles } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Send, Sparkles, Instagram  } from 'lucide-react';
 
 const Contact = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://platform.linkedin.com/badges/js/profile.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // Optional cleanup when component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   // Mock portfolio data
   const personal = {
@@ -28,11 +41,11 @@ const Contact = () => {
       gradient: 'from-gray-700 to-gray-900'
     },
     {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      value: 'Let\'s connect',
-      href: personal.linkedin,
-      gradient: 'from-blue-500 to-blue-700'
+      icon: Instagram ,
+      label: 'Instagram',
+      value: '@_nithin.kr_',
+      href: 'https://instagram.com/_nithin.kr_',
+      gradient: 'from-pink-500 to-purple-500'
     },
     {
       icon: MapPin,
@@ -59,15 +72,7 @@ const Contact = () => {
         <div className="absolute top-20 left-20 w-72 h-72 bg-white/10 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute top-40 right-32 w-96 h-96 bg-blue-400/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         <div className="absolute bottom-32 left-1/3 w-80 h-80 bg-purple-400/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '4s' }}></div>
-        
-        {/* Dynamic mouse follower */}
-        {/* <div 
-          className="fixed w-64 h-64 bg-gradient-to-r from-cyan-400/20 to-purple-400/20 rounded-full blur-3xl pointer-events-none transition-all duration-700 ease-out"
-          style={{
-            left: mousePos.x - 128,
-            top: mousePos.y - 128,
-          }}
-        /> */}
+              
       </div>
 
       <div className="relative z-10 px-8 py-20">
@@ -95,16 +100,33 @@ const Contact = () => {
               Ready to collaborate on your next project? I'd love to hear about your ideas and bring them to life.
             </p>
 
+            <div className="mt-8 flex justify-center">
+              <div
+                className="badge-base LI-profile-badge"
+                data-locale="en_US"
+                data-size="large"
+                data-theme="dark"
+                data-type="HORIZONTAL"
+                data-vanity="nithinkr06"
+                data-version="v1"
+              >
+                <a
+                  className="badge-base__link LI-simple-link"
+                  href="https://in.linkedin.com/in/nithinkr06?trk=profile-badge"
+                ></a>
+              </div>
+            </div>
+
           </div>
 
           {/* Contact Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 justify-center items-center">
             {contactItems.map((item, index) => {
               const IconComponent = item.icon;
               const isClickable = item.href !== null;
               
               const CardContent = (
-                <div className="group relative h-full">
+                <div className="group relative h-full justify-center items-center cursor-pointer flex-1">
                   {/* Glass card */}
                   <div className="relative p-8 h-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl hover:bg-white/20 hover:border-white/30 transition-all duration-500 hover:scale-105 hover:-translate-y-2">
                     
@@ -137,6 +159,7 @@ const Contact = () => {
                         <Send size={16} className="text-white/80" />
                       </div>
                     )}
+
                   </div>
 
                   {/* Glass reflection effect */}
