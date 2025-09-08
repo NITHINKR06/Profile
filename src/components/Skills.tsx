@@ -67,11 +67,18 @@ const CategoryTab = ({
   return (
     <motion.button
       onClick={onClick}
-      className={`relative px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-        isActive 
-          ? 'text-white' 
-          : 'text-slate-400 hover:text-white'
-      }`}
+      className={`
+        relative 
+        px-3 py-2 text-sm        /* 👈 smaller default for mobile */
+        sm:px-5 sm:py-2.5 sm:text-base /* 👈 medium for tablets */
+        md:px-6 md:py-3 md:text-lg     /* 👈 full size for desktop */
+        rounded-full font-medium 
+        transition-all duration-300
+        whitespace-nowrap           /* 👈 prevent text breaking */
+        ${isActive 
+          ? "text-white" 
+          : "text-slate-400 hover:text-white"}
+      `}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
