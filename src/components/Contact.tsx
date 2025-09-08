@@ -6,9 +6,9 @@ const Contact = () => {
 
   // Mock portfolio data
   const personal = {
-    email: 'hello@developer.com',
-    github: 'https://github.com/developer',
-    linkedin: 'https://linkedin.com/in/developer',
+    email: 'nithinpoojari717@gmail.com',
+    github: 'https://github.com/NITHINKR06',
+    linkedin: 'https://linkedin.com/in/nithinkr06',
     location: 'Chikkamagalur, India'
   };
 
