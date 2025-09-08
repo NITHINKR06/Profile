@@ -10,10 +10,7 @@ export interface Project {
 
 export interface Skill {
   category: string;
-  items: {
-    name: string;
-    logo: string; // can be emoji or /public/logo-original.svg path
-  }[];
+  items: { name: string; logo: string; link: string }[]; // 👈 updated
 }
 
 export interface Education {
@@ -50,55 +47,54 @@ export const portfolioData = {
     location: "Karnataka, IN",
     bio: "Passionate Full Stack Developer with expertise in modern web technologies and a focus on creating scalable, user-centric applications."
   },
-  
+
   skills: [
     {
       category: "Frontend",
       items: [
-        { name: "React", logo: "/logos/react-original.svg" },
-        { name: "Next.js", logo: "/logos/nextjs-original.svg" },
-        { name: "TypeScript", logo: "/logos/typescript-original.svg" },
-        { name: "Tailwind CSS", logo: "/logos/tailwindcss-original.svg" },
-        { name: "GSAP", logo: "/logos/gsap.svg" },
-        { name: "Three.js", logo: "/logos/threejs-original.svg" },
-        { name: "Vite", logo: "/logos/vite-original.svg" }
+        { name: "React", logo: "/logos/react-original.svg", link: "https://react.dev/" },
+        { name: "Next.js", logo: "/logos/nextjs-original.svg", link: "https://nextjs.org/" },
+        { name: "TypeScript", logo: "/logos/typescript-original.svg", link: "https://www.typescriptlang.org/" },
+        { name: "Tailwind CSS", logo: "/logos/tailwindcss-original.svg", link: "https://tailwindcss.com/" },
+        { name: "GSAP", logo: "/logos/gsap.svg", link: "https://gsap.com/" },
+        { name: "Three.js", logo: "/logos/threejs-original.svg", link: "https://threejs.org/" },
+        { name: "Vite", logo: "/logos/vite-original.svg", link: "https://vitejs.dev/" }
       ]
     },
     {
-      category: "Backend",
+      category: "Backend", 
       items: [
-        { name: "Node.js", logo: "/logos/nodejs-original.svg" },
-        { name: "Python", logo: "/logos/python-original.svg" },
-        { name: "PostgreSQL", logo: "/logos/postgresql-original.svg" },
-        { name: "MongoDB", logo: "/logos/mongodb-original.svg" },
-        { name: "GraphQL", logo: "/logos/graphql-plain.svg" },
-        { name: "Networking", logo: "/logos/networking-original.svg" }
+        { name: "Node.js", logo: "/logos/nodejs-original.svg", link: "https://nodejs.org/" },
+        { name: "Python", logo: "/logos/python-original.svg", link: "https://www.python.org/" },
+        { name: "PostgreSQL", logo: "/logos/postgresql-original.svg", link: "https://www.postgresql.org/" },
+        { name: "MongoDB", logo: "/logos/mongodb-original.svg", link: "https://www.mongodb.com/" },
+        { name: "GraphQL", logo: "/logos/graphql-plain.svg", link: "https://graphql.org/" },
+        { name: "Networking", logo: "/logos/networking-original.svg", link: "https://en.wikipedia.org/wiki/Computer_network" }
       ]
     },
     {
       category: "DevOps",
       items: [
-        { name: "Docker", logo: "/logos/docker-original.svg" },
-        { name: "AWS", logo: "/logos/aws-original.svg" },
-        { name: "Vercel", logo: "/logos/vercel-original.svg" },
-        { name: "GitHub Actions", logo: "/logos/githubactions-original.svg" }
+        { name: "Docker", logo: "/logos/docker-original.svg", link: "https://www.docker.com/" },
+        { name: "AWS", logo: "/logos/aws-original.svg", link: "https://aws.amazon.com/" },
+        { name: "Vercel", logo: "/logos/vercel-original.svg", link: "https://vercel.com/" },
+        { name: "GitHub Actions", logo: "/logos/githubactions-original.svg", link: "https://github.com/features/actions" }
       ]
     },
     {
       category: "Tools",
       items: [
-        { name: "Git", logo: "/logos/git-original.svg" },
-        { name: "GitHub", logo: "/logos/github-original.svg" },
-        { name: "VSCode", logo: "/logos/vscode-original.svg" },
-        { name: "Figma", logo: "/logos/figma-original.svg" },
-        { name: "Canva", logo: "/logos/canva-original.svg" },
-        { name: "Notion", logo: "/logos/notion-original.svg" },
-        { name: "Postman", logo: "/logos/postman.svg" },
-        { name: "Firebase", logo: "/logos/firebase-original.svg" }
+        { name: "Git", logo: "/logos/git-original.svg", link: "https://git-scm.com/" },
+        { name: "GitHub", logo: "/logos/github-original.svg", link: "https://github.com/" },
+        { name: "VSCode", logo: "/logos/vscode-original.svg", link: "https://code.visualstudio.com/" },
+        { name: "Figma", logo: "/logos/figma-original.svg", link: "https://figma.com/" },
+        { name: "Canva", logo: "/logos/canva-original.svg", link: "https://canva.com/" },
+        { name: "Notion", logo: "/logos/notion-original.svg", link: "https://notion.so/" },
+        { name: "Postman", logo: "/logos/postman.svg", link: "https://www.postman.com/" },
+        { name: "Firebase", logo: "/logos/firebase-original.svg", link: "https://firebase.google.com/" }
       ]
     }
   ] as Skill[],
-
 
   projects: [
     {

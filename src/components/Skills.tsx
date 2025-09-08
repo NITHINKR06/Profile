@@ -2,58 +2,40 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio';
 
-
-const SkillCard = ({ skill, index }: { skill: { name: string; logo: string }, index: number }) => {
+const SkillCard = ({ skill, index }: { skill: { name: string; logo: string; link: string }, index: number }) => {
   return (
-    <motion.div
+    <motion.a
+      href={skill.link}
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
-      whileHover={{
-        scale: 1.08,
-        boxShadow: "0 12px 25px rgba(139, 92, 246, 0.2)",
-        transition: { duration: 0.4, ease: "easeInOut" } // 👈 smooth hover
-      }}
-      whileTap={{
-        scale: 0.97,
-        transition: { duration: 0.2, ease: "easeOut" }
-      }}
-      className="group relative bg-gradient-to-t from-slate-800/50 to-slate-900/50 
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(139, 92, 246, 0.2)" }}
+      className="group relative block bg-gradient-to-t from-slate-800/50 to-slate-900/50 
                  backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 
                  hover:border-purple-400/50 transition-all duration-300"
     >
-      {/* Subtle hover glow */}
+      {/* Hover Glow */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 
                       rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       <div className="relative z-10 text-center">
         {/* Logo/Icon */}
         {skill.logo.endsWith(".svg") ? (
-          <motion.img
-            src={skill.logo}
-            alt={skill.name}
-            className="w-12 h-12 mx-auto mb-4"
-            whileHover={{ rotate: [0, -5, 5, -5, 0] }} // 👈 smooth wiggle
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          />
+          <img src={skill.logo} alt={skill.name} className="w-12 h-12 mx-auto mb-4" />
         ) : (
-          <motion.span
-            className="text-4xl mb-4 inline-block"
-            whileHover={{ rotate: [0, -5, 5, -5, 0] }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          >
-            {skill.logo}
-          </motion.span>
+          <span className="text-4xl mb-4">{skill.logo}</span>
         )}
 
-        {/* Title */}
         <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">
           {skill.name}
         </h3>
       </div>
-    </motion.div>
+    </motion.a>
   );
 };
+
 
 const CategoryTab = ({ 
   category, 
