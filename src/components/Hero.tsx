@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, MapPin, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
 export const Hero = () => {
@@ -150,7 +150,7 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-white to-purple-500 rounded-full blur-2xl opacity-50 animate-pulse" />
               <div className="absolute inset-4 glass-card rounded-full p-2">
                 <img
-                  src="/nithin-k-r.jpg"
+                  src="/NITHINKR06.JPG"
                   alt="Nithin K R"
                   className="w-full h-full object-cover rounded-full border-4 border-gradient-to-r from-purple-400 to-pink-400"
                 />
