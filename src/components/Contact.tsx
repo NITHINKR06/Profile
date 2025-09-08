@@ -9,7 +9,7 @@ const Contact = () => {
     email: 'hello@developer.com',
     github: 'https://github.com/developer',
     linkedin: 'https://linkedin.com/in/developer',
-    location: 'San Francisco, CA'
+    location: 'Chikkamagalur, India'
   };
 
   const contactItems = [
