@@ -1,55 +1,91 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Code2, Database, Server, Wrench,
-  Palette, Globe, Smartphone, Cloud,
-  GitBranch, Terminal, Figma, FileText
-} from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
-const skillIcons: { [key: string]: React.ComponentType<any> } = {
-  'React': Code2,
-  'Next.js': Globe,
-  'TypeScript': Code2,
-  'Tailwind CSS': Palette,
-  'GSAP': Smartphone,
-  'Three.js': Code2,
-  'Node.js': Server,
-  'Python': Code2,
-  'PostgreSQL': Database,
-  'MongoDB': Database,
-  'GraphQL': Database,
-  'Docker': Cloud,
-  'AWS': Cloud,
-  'Vercel': Cloud,
-  'GitHub Actions': GitBranch,
-  'Git': GitBranch,
-  'VSCode': Terminal,
-  'Figma': Figma,
-  'Notion': FileText,
-  'Postman': Wrench
+
+const SkillCard = ({ skill, index }: { skill: { name: string; logo: string }, index: number }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(139, 92, 246, 0.15)" }}
+      className="group relative from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      
+      <div className="relative z-10 text-center">
+        {/* Logo/Icon */}
+        {skill.logo.endsWith(".svg") ? (
+          <img src={skill.logo} alt={skill.name} className="w-12 h-12 mx-auto mb-4" />
+        ) : (
+          <span className="text-4xl mb-4">{skill.logo}</span>
+        )}
+
+        <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors">
+          {skill.name}
+        </h3>
+      </div>
+    </motion.div>
+  );
 };
 
-export const Skills: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto switch tabs every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % portfolioData.skills.length);
-    }, 5000);
+const CategoryTab = ({ 
+  category, 
+  isActive, 
+  onClick 
+}: { 
+  category: string; 
+  isActive: boolean; 
+  onClick: () => void; 
+}) => {
+  return (
+    <motion.button
+      onClick={onClick}
+      className={`relative px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+        isActive 
+          ? 'text-white' 
+          : 'text-slate-400 hover:text-white'
+      }`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {isActive && (
+        <motion.div
+          layoutId="activeTab"
+          className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+        />
+      )}
+      <span className="relative z-10">{category}</span>
+    </motion.button>
+  );
+};
 
-    return () => clearInterval(interval);
-  }, []);
+export const Skills = () => {
+  const [activeCategory, setActiveCategory] = useState("Frontend");
+  const categories = portfolioData.skills.map((skill) => skill.category);
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Background floating elements (same as your code) */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* ... keep your decorative motion divs here ... */}
+    <section id="skills" className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="container mx-auto px-6 max-w-6xl">
+      {/* Grid Pattern */}
+      <div 
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}
+      />
+
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,84 +93,96 @@ export const Skills: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent mb-4">
-            Technical Skills
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Technologies and tools I use to bring ideas to life
-          </p>
+          <motion.h2 
+            className="text-5xl md:text-6xl font-bold mb-6"
+            initial={{ backgroundPosition: "0% 50%" }}
+            animate={{ backgroundPosition: "100% 50%" }}
+            transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+            style={{
+              background: "linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4, #8b5cf6)",
+              backgroundSize: "400% 400%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text"
+            }}
+          >
+            Skills & Expertise
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-xl text-slate-400 max-w-2xl mx-auto"
+          >
+            Technologies and tools I use to create exceptional digital experiences
+          </motion.p>
         </motion.div>
 
-        {/* Tabs Navigation */}
-        <div className="flex justify-center mb-8 gap-4">
-          {portfolioData.skills.map((skillCategory, index) => (
-            <button
-              key={skillCategory.category}
-              onClick={() => setActiveIndex(index)}
-              className={`px-4 py-2 rounded-full text-sm transition-all ${
-                activeIndex === index 
-                  ? 'bg-purple-500 text-white shadow-md' 
-                  : 'bg-white/10 text-gray-400 hover:bg-white/20'
-              }`}
-            >
-              {skillCategory.category}
-            </button>
-          ))}
-        </div>
-
-        {/* Active Category Display */}
-        <motion.div
-          key={portfolioData.skills[activeIndex].category}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-center"
+        {/* Category Tabs */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-12"
         >
-          {portfolioData.skills[activeIndex].items.map((skill, skillIndex) => {
-            const IconComponent = skillIcons[skill] || Code2;
-            return (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: skillIndex * 0.05 
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
-                className="flex flex-col items-center p-4 bg-transparent hover:bg-white/5 transition-all duration-300 group cursor-pointer"
-              >
-                <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-3"
-                >
-                  <IconComponent 
-                    size={32} 
-                    className="text-purple-400 group-hover:text-pink-400 transition-colors duration-300" 
-                  />
-                </motion.div>
-                <span className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300 text-center font-medium">
-                  {skill}
-                </span>
-              </motion.div>
-            );
-          })}
+          <div className="flex flex-wrap gap-2 bg-slate-800/50 backdrop-blur-sm p-2 rounded-full border border-slate-700/50">
+            {categories.map((category) => (
+              <CategoryTab
+                key={category}
+                category={category}
+                isActive={activeCategory === category}
+                onClick={() => setActiveCategory(category)}
+              />
+            ))}
+          </div>
         </motion.div>
 
-        {/* Quote (unchanged) */}
+        {/* Skills Grid */}
+        <motion.div
+          key={activeCategory}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
+        >
+           {portfolioData.skills
+              .find((cat) => cat.category === activeCategory)
+              ?.items.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+            ))}
+        </motion.div>
+
+        {/* Bottom Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center relative mt-28"
+          className="flex justify-center gap-12 mt-20"
         >
-          {/* ... keep your quote block with floating icons ... */}
+          {[
+            { number: "20+", label: "Technologies" },
+            { number: "3+", label: "Years Experience" },
+            { number: "50+", label: "Projects Completed" }
+          ].map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              className="text-center"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.h3 
+                className="text-3xl md:text-4xl font-bold text-white mb-2"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ delay: index * 0.1, type: "spring" }}
+                viewport={{ once: true }}
+              >
+                {stat.number}
+              </motion.h3>
+              <p className="text-slate-400">{stat.label}</p>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
