@@ -8,28 +8,52 @@ const SkillCard = ({ skill, index }: { skill: { name: string; logo: string }, in
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(139, 92, 246, 0.15)" }}
-      className="group relative from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300"
+      transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+      whileHover={{
+        scale: 1.08,
+        boxShadow: "0 12px 25px rgba(139, 92, 246, 0.2)",
+        transition: { duration: 0.4, ease: "easeInOut" } // 👈 smooth hover
+      }}
+      whileTap={{
+        scale: 0.97,
+        transition: { duration: 0.2, ease: "easeOut" }
+      }}
+      className="group relative bg-gradient-to-t from-slate-800/50 to-slate-900/50 
+                 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 
+                 hover:border-purple-400/50 transition-all duration-300"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* Subtle hover glow */}
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 
+                      rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       <div className="relative z-10 text-center">
         {/* Logo/Icon */}
         {skill.logo.endsWith(".svg") ? (
-          <img src={skill.logo} alt={skill.name} className="w-12 h-12 mx-auto mb-4" />
+          <motion.img
+            src={skill.logo}
+            alt={skill.name}
+            className="w-12 h-12 mx-auto mb-4"
+            whileHover={{ rotate: [0, -5, 5, -5, 0] }} // 👈 smooth wiggle
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          />
         ) : (
-          <span className="text-4xl mb-4">{skill.logo}</span>
+          <motion.span
+            className="text-4xl mb-4 inline-block"
+            whileHover={{ rotate: [0, -5, 5, -5, 0] }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          >
+            {skill.logo}
+          </motion.span>
         )}
 
-        <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors">
+        {/* Title */}
+        <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">
           {skill.name}
         </h3>
       </div>
     </motion.div>
   );
 };
-
 
 const CategoryTab = ({ 
   category, 
@@ -68,7 +92,7 @@ export const Skills = () => {
   const categories = portfolioData.skills.map((skill) => skill.category);
 
   return (
-    <section id="skills" className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 relative overflow-hidden">
+    <section id="skills" className="min-h-screen from-slate-900 via-slate-800 to-slate-900 py-20 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
