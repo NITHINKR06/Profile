@@ -18,7 +18,6 @@ export interface Skill {
   }[];
 }
 
-
 export interface Education {
   institution: string;
   degree: string;
@@ -42,7 +41,6 @@ export interface Experience {
   awards?: string[];
   languages?: string[];
 }
-
 export interface Certifications {
   title: string;
   issuer: string;
@@ -120,7 +118,7 @@ export const portfolioData = {
       description: "A comprehensive React application focused on user authentication, booking management, calendar integration, and interactive UI components.",
       technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       githubUrl: "https://github.com/NITHINKR06/emp",
-      liveUrl: "https://your-deployment-link.com",
+      liveUrl: "https://nithinkr06.vercel.app",
       status: "completed"
     }
   ] as Project[],
