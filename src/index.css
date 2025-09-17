@@ -12,6 +12,24 @@
   }
 }
 
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+.animate-shine {
+  animation: shine 1.8s ease-in-out infinite;
+}
+
+.animate-sweep {
+  animation: sweep 2s linear infinite;
+}
+
+
 @layer components {
   .glass-card {
     @apply bg-white/10 backdrop-blur-md border border-white/20;

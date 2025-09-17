@@ -57,26 +57,39 @@ const CategoryTab = ({
   return (
     <motion.button
       onClick={onClick}
+      whileHover={{ scale: 1.08, y: -2 }}
+      whileTap={{ scale: 0.96 }}
       className={`
-        relative 
-        px-3 py-2 text-sm
-        sm:px-5 sm:py-2.5 sm:text-base
-        md:px-6 md:py-3 md:text-lg
-        rounded-full font-medium 
-        transition-all duration-300
-        whitespace-nowrap
-        ${isActive ? "text-white" : "text-slate-400 hover:text-white"}
+        group relative px-6 py-3 rounded-xl
+        font-medium text-sm sm:text-base tracking-wide
+        transition-all duration-500
+        ${isActive ? "text-white" : "text-slate-300 hover:text-white"}
       `}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
     >
+      {/* glass base */}
+      <div className="absolute inset-0 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-inner shadow-black/10" />
+
+      {/* active glow */}
       {isActive && (
         <motion.div
-          layoutId="activeTab"
-          className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+          layoutId="activeGlow"
+          className="absolute inset-0 rounded-xl"
+          style={{
+            boxShadow:
+              "0 0 20px rgba(99,102,241,0.35), 0 0 50px rgba(236,72,153,0.25)",
+            background:
+              "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(236,72,153,0.1))",
+            border: "1px solid rgba(255,255,255,0.15)",
+          }}
+          transition={{ type: "spring", stiffness: 200, damping: 18 }}
         />
       )}
+
+      {/* sweep shine on hover */}
+      <div className="absolute inset-0 overflow-hidden rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute w-1/3 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -left-1/3 group-hover:animate-shine" />
+      </div>
+
       <span className="relative z-10">{category}</span>
     </motion.button>
   );
@@ -142,25 +155,17 @@ export const Skills = () => {
         </motion.div>
 
         {/* Category Tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-12"
-        >
-          <div className="flex flex-wrap gap-2 bg-slate-800/50 backdrop-blur-sm p-2 rounded-full border border-slate-700/50">
-            {categories.map((category) => (
-              <CategoryTab
-                key={category}
-                category={category}
-                isActive={activeCategory === category}
-                onClick={() => setActiveCategory(category)}
-              />
-            ))}
-          </div>
-        </motion.div>
-
+        <div className="flex flex-row flex-wrap justify-center gap-3 pb-10">
+          {categories.map((category) => (
+            <CategoryTab
+              key={category}
+              category={category}
+              isActive={activeCategory === category}
+              onClick={() => setActiveCategory(category)}
+            />
+          ))}
+        </div>
+        
         {/* Skills Grid */}
         <motion.div
           key={activeCategory}
