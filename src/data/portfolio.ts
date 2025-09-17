@@ -43,6 +43,17 @@ export interface Experience {
   languages?: string[];
 }
 
+export interface Certifications {
+  title: string;
+  issuer: string;
+  date: string;
+  location?: string;
+  description: string[];
+  skills?: string[];
+  link?: string;
+  image?: string;
+}
+
 export const portfolioData = {
   personal: {
     name: "Nithin K R",
@@ -161,7 +172,81 @@ export const portfolioData = {
         "Participated in agile development and sprint planning"
       ]
     }
-  ] as Experience[]
+  ] as Experience[],
+
+  certifications: [
+    {
+      title: "Code Fury 8.0 - NL Hackathon",
+      issuer: "University Visvesvaraya College of Engineering ( UVCE )",
+      date: "Aug 2025",
+      image: "/certificate/codefury.jpeg",
+      location: "Online ",
+      description: [
+        "Thrilled to share that I participated in CodeFury 8.0! 🎉",
+        "It was an amazing opportunity to explore my skills,",
+        "collaborate, and learn in the field of technology."
+      ],
+      skills: ["CyberSecurity", "GenAI", "Flack", "Git"]
+    },
+
+    {
+      title: "Hackfest '25 - Hackathon",
+      issuer: "Finite Loop Club - NMAMIT Nitte",
+      date: "Apr 2025",
+      image: "/certificate/hackfest.jpeg",
+      description: [
+        "Validated knowledge of AWS services and architecture best practices.",
+        "Designed and implemented scalable cloud solutions."
+      ],
+      skills: ["AWS", "Cloud Architecture", "Networking"]
+    },
+
+    {
+      title: "PROJECT OMEGA 2025 - Hackathon",
+      issuer: "YENEPOYA INSTITUTE OF TECHNOLOGY MANGALORE",
+      date: "Apr 2025",
+      image: "/certificate/omega1.jpeg",
+      description: [
+        ''
+      ],
+      skills: [""]
+    },
+
+    {
+      title: "Systems and Usable Security - Course",
+      issuer: "NPTEL ",
+      date: "Apr 2025",
+      image: "/certificate/nptel1.jpeg",
+      description: [
+        "Happy to share that I have successfully completed the NPTEL course on Systems and Usable Security (Jan–Feb 2025).",
+        "Grateful for the learning experience and excited to keep growing in the field of security."
+      ],
+      skills: ["System Security", "CyberSecurity ", "Networking"]
+    },
+
+    {
+      title: "Microsoft Learn Workshop - Workshop",
+      issuer: "NMAM Institute of Technology Nitte",
+      date: "Mar 2025",
+      image: "/certificate/javascript.jpeg",
+      description: [
+        "Introduction to JavaScript DOM Basics (Hands-On), hosted by S Shyam Kumar. 💻✨",
+        "It was a great experience to enhance my JavaScript skills and deepen my understanding of the DOM."
+      ],
+      skills: ["JavaScript", "Logic & Working", "WebDevelopment"]
+    },
+
+    {
+      title: "Debug Your Soul 2.0",
+      issuer: "CSI, Student Branch NMAMIT Nitte",
+      date: "Aug 2024",
+      image: "/certificate/debugus.jpeg",
+      description: [
+        ""
+      ],
+      skills: ["Logic", "Promblem Solving"]
+    }
+  ] as Certifications[]
 };
 
 export const terminalCommands = {

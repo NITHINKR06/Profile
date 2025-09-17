@@ -11,7 +11,7 @@ const Experience = () => {
   const toggleCard = (index:any) => {
     setExpandedCard(expandedCard === index ? null : index);
   };
-
+  
   return (
     <section id="experience" className="py-20 px-4  min-h-screen">
       <div className="max-w-6xl mx-auto">

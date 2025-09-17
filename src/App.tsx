@@ -8,6 +8,7 @@ import { Education } from './components/Education';
 import Experience from './components/Experience';
 import { Projects } from './components/Projects';
 import Contact from './components/Contact';
+import Certification from './components/Certification';
 
 // Utility functions
 const setCookie = (name: string, value: string, hours = 1) => {
@@ -106,6 +107,7 @@ function App(): JSX.Element {
             <Experience />
             <Education />
             <Projects />
+            <Certification />
             <Contact />
           </main>
 
