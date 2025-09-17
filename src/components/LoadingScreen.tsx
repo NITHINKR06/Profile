@@ -413,7 +413,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           className="w-full max-w-md mx-auto mb-8"
         >
           {/* Progress Bar Container */}
-          <div className="relative mb-6">
+          {/* <div className="relative mb-6">
             <div className="h-2 bg-gray-800 rounded-full overflow-hidden shadow-inner">
               <motion.div
                 className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-full relative"
@@ -436,7 +436,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               </motion.div>
             </div>
             
-            {/* Glow Effect */}
+            Glow Effect
             <motion.div
               className="absolute inset-0 h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-full blur-sm opacity-50"
               style={{
@@ -444,7 +444,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               }}
               transition={{ duration: 0.3 }}
             />
-          </div>
+          </div> */}
 
           {/* Loading Text Section */}
           <div className="text-center">

@@ -10,8 +10,14 @@ export interface Project {
 
 export interface Skill {
   category: string;
-  items: { name: string; logo: string; link: string }[]; // 👈 updated
+  items: {
+    name: string;
+    logo: string;
+    link: string;
+    color: string; // 👈 added
+  }[];
 }
+
 
 export interface Education {
   institution: string;
@@ -47,51 +53,51 @@ export const portfolioData = {
     location: "Karnataka, IN",
     bio: "Passionate Full Stack Developer with expertise in modern web technologies and a focus on creating scalable, user-centric applications."
   },
-
+  
   skills: [
     {
       category: "Frontend",
       items: [
-        { name: "React", logo: "/logos/react-original.svg", link: "https://react.dev/" },
-        { name: "Next.js", logo: "/logos/nextjs-original.svg", link: "https://nextjs.org/" },
-        { name: "TypeScript", logo: "/logos/typescript-original.svg", link: "https://www.typescriptlang.org/" },
-        { name: "Tailwind CSS", logo: "/logos/tailwindcss-original.svg", link: "https://tailwindcss.com/" },
-        { name: "GSAP", logo: "/logos/gsap.svg", link: "https://gsap.com/" },
-        { name: "Three.js", logo: "/logos/threejs-original.svg", link: "https://threejs.org/" },
-        { name: "Vite", logo: "/logos/vite-original.svg", link: "https://vitejs.dev/" }
+        { name: "React", logo: "/logos/react-original.svg", link: "https://react.dev/", color: "#61DAFB" },
+        { name: "Next.js", logo: "/logos/nextjs-original.svg", link: "https://nextjs.org/", color: "#000000" },
+        { name: "TypeScript", logo: "/logos/typescript-original.svg", link: "https://www.typescriptlang.org/", color: "#3178C6" },
+        { name: "Tailwind CSS", logo: "/logos/tailwindcss-original.svg", link: "https://tailwindcss.com/", color: "#38BDF8" },
+        { name: "GSAP", logo: "/logos/gsap.svg", link: "https://gsap.com/", color: "#88CE02" },
+        { name: "Three.js", logo: "/logos/threejs-original.svg", link: "https://threejs.org/", color: "#FFFFFF" },
+        { name: "Vite", logo: "/logos/vite-original.svg", link: "https://vitejs.dev/", color: "#646CFF" }
       ]
     },
     {
-      category: "Backend", 
+      category: "Backend",
       items: [
-        { name: "Node.js", logo: "/logos/nodejs-original.svg", link: "https://nodejs.org/" },
-        { name: "Python", logo: "/logos/python-original.svg", link: "https://www.python.org/" },
-        { name: "PostgreSQL", logo: "/logos/postgresql-original.svg", link: "https://www.postgresql.org/" },
-        { name: "MongoDB", logo: "/logos/mongodb-original.svg", link: "https://www.mongodb.com/" },
-        { name: "GraphQL", logo: "/logos/graphql-plain.svg", link: "https://graphql.org/" },
-        { name: "Networking", logo: "/logos/networking-original.svg", link: "https://en.wikipedia.org/wiki/Computer_network" }
+        { name: "Node.js", logo: "/logos/nodejs-original.svg", link: "https://nodejs.org/", color: "#5FA04E" },
+        { name: "Python", logo: "/logos/python-original.svg", link: "https://www.python.org/", color: "#3776AB" },
+        { name: "PostgreSQL", logo: "/logos/postgresql-original.svg", link: "https://www.postgresql.org/", color: "#336791" },
+        { name: "MongoDB", logo: "/logos/mongodb-original.svg", link: "https://www.mongodb.com/", color: "#47A248" },
+        { name: "GraphQL", logo: "/logos/graphql-plain.svg", link: "https://graphql.org/", color: "#E10098" },
+        { name: "Networking", logo: "/logos/networking-original.svg", link: "https://en.wikipedia.org/wiki/Computer_network", color: "#0284C7" }
       ]
     },
     {
       category: "DevOps",
       items: [
-        { name: "Docker", logo: "/logos/docker-original.svg", link: "https://www.docker.com/" },
-        { name: "AWS", logo: "/logos/aws-original.svg", link: "https://aws.amazon.com/" },
-        { name: "Vercel", logo: "/logos/vercel-original.svg", link: "https://vercel.com/" },
-        { name: "GitHub Actions", logo: "/logos/githubactions-original.svg", link: "https://github.com/features/actions" }
+        { name: "Docker", logo: "/logos/docker-original.svg", link: "https://www.docker.com/", color: "#2496ED" },
+        { name: "AWS", logo: "/logos/aws-original.svg", link: "https://aws.amazon.com/", color: "#FF9900" },
+        { name: "Vercel", logo: "/logos/vercel-original.svg", link: "https://vercel.com/", color: "#000000" },
+        { name: "GitHub Actions", logo: "/logos/githubactions-original.svg", link: "https://github.com/features/actions", color: "#2088FF" }
       ]
     },
     {
       category: "Tools",
       items: [
-        { name: "Git", logo: "/logos/git-original.svg", link: "https://git-scm.com/" },
-        { name: "GitHub", logo: "/logos/github-original.svg", link: "https://github.com/" },
-        { name: "VSCode", logo: "/logos/vscode-original.svg", link: "https://code.visualstudio.com/" },
-        { name: "Figma", logo: "/logos/figma-original.svg", link: "https://figma.com/" },
-        { name: "Canva", logo: "/logos/canva-original.svg", link: "https://canva.com/" },
-        { name: "Notion", logo: "/logos/notion-original.svg", link: "https://notion.so/" },
-        { name: "Postman", logo: "/logos/postman.svg", link: "https://www.postman.com/" },
-        { name: "Firebase", logo: "/logos/firebase-original.svg", link: "https://firebase.google.com/" }
+        { name: "Git", logo: "/logos/git-original.svg", link: "https://git-scm.com/", color: "#F05032" },
+        { name: "GitHub", logo: "/logos/github-original.svg", link: "https://github.com/", color: "#181717" },
+        { name: "VSCode", logo: "/logos/vscode-original.svg", link: "https://code.visualstudio.com/", color: "#007ACC" },
+        { name: "Figma", logo: "/logos/figma-original.svg", link: "https://figma.com/", color: "#F24E1E" },
+        { name: "Canva", logo: "/logos/canva-original.svg", link: "https://canva.com/", color: "#00C4CC" },
+        { name: "Notion", logo: "/logos/notion-original.svg", link: "https://notion.so/", color: "#000000" },
+        { name: "Postman", logo: "/logos/postman.svg", link: "https://www.postman.com/", color: "#FF6C37" },
+        { name: "Firebase", logo: "/logos/firebase-original.svg", link: "https://firebase.google.com/", color: "#FFCA28" }
       ]
     }
   ] as Skill[],
